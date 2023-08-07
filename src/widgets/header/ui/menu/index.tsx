@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { NavLink, NavLinkProps } from "react-router-dom";
-import profileIcon from "shared/assets/images/profile-icon.svg";
-import routes from "shared/lib/routes";
+
 import "./index.scss";
+
 import { UserMenu } from "widgets/header/ui/menu/userMenu";
 import ViewerMenu from "widgets/header/ui/menu/viewerMenu";
 
@@ -13,7 +12,7 @@ export const Menu = () => {
 
   const [isMenuActive, setIsMenuActive] = useState(false);
 
-  const isAuthorized = true;
+  const isAuthorized = false;
   return (
     <div className="menu">
       <span

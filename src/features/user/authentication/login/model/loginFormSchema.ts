@@ -6,7 +6,7 @@ export const loginFormSchema = z.object({
   }),
   password: z
     .string()
-    .min(6, { message: "Минимальная длина пароля 6 символов" }),
+    .min(5, { message: "Минимальная длина пароля 5 символов" }),
 });
 
 export type LoginFormSchema = z.infer<typeof loginFormSchema>;

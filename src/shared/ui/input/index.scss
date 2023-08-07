@@ -21,7 +21,7 @@
       color: var(---text-main);
     }
 
-    &_light:focus {
+    &_light:focus, &_light:focus:not(:placeholder-shown){
       border-color: var(---primary);
     }
 
@@ -58,7 +58,8 @@
     transition-duration: 0.3s;
     font-size: 14px;
   }
-  &__float-label input:focus~label {
+  &:focus ~ label,
+  &:not(:placeholder-shown) ~ label{
     top: -0.75rem;
     font-size:12px
   }

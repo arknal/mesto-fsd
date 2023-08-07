@@ -5,7 +5,7 @@ import { createClassName } from "shared/utils/helpers";
 interface IProps {
   required?: boolean;
   value?: string;
-  onChange: ChangeEventHandler;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
   type?: string;
   name?: string;
   placeholder?: string;
@@ -20,7 +20,7 @@ export const Input: FC<IProps> = ({ placeholder, className, ...props }) => {
   );
   return (
     <span className="input__float-label">
-      <input className={createdClassName} {...props} />
+      <input className={createdClassName} {...props} placeholder="" />
       <label htmlFor={props.name}>{placeholder}</label>
     </span>
   );

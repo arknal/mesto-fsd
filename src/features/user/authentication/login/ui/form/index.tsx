@@ -1,4 +1,4 @@
-import { useState, ChangeEvent, FormEvent, FC } from "react";
+import { FC, useCallback } from "react";
 import { Link } from "react-router-dom";
 import {
   Form,
@@ -9,6 +9,12 @@ import {
   Button,
 } from "shared/ui";
 import routes from "shared/lib/routes";
+import {
+  loginFormSchema,
+  type LoginFormSchema,
+} from "features/user/authentication/login/model/loginFormSchema";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm, Controller, SubmitHandler } from "react-hook-form";
 
 interface IFormState {
   email: string;
@@ -16,51 +22,65 @@ interface IFormState {
 }
 
 export const LoginForm: FC = () => {
-  const [formState, setFormState] = useState<IFormState>({
-    email: "",
-    password: "",
+  const { control, handleSubmit } = useForm<LoginFormSchema>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    resolver: zodResolver(loginFormSchema),
   });
 
-  function handleSubmit(e: FormEvent) {
-    e.preventDefault();
-  }
-
-  function handleEmailChange(e: ChangeEvent<HTMLInputElement>) {
-    setFormState({ ...formState, email: e.target.value });
-  }
-
-  function handlePasswordChange(e: ChangeEvent<HTMLInputElement>) {
-    setFormState({ ...formState, password: e.target.value });
-  }
+  const onSubmit: SubmitHandler<IFormState> = (data) => {
+    console.log(data);
+  };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit(onSubmit)}>
       <FormTitle theme="light" center>
         Вход
       </FormTitle>
       <FormField>
-        <Input
-          required
-          value={formState.email}
-          onChange={handleEmailChange}
-          type="email"
+        <Controller
           name="email"
-          theme="light"
-          placeholder="Электронная почта"
+          control={control}
+          render={({ field, fieldState, formState }) => (
+            <>
+              <Input
+                theme="light"
+                placeholder={"Электронная почта"}
+                name={field.name}
+                value={field.value}
+                onChange={(e) => field.onChange(e.target.value)}
+                className={fieldState.error?.message && "input_invalid"}
+              />
+              <FormError>
+                {formState.isValidating
+                  ? "валидация..."
+                  : fieldState.error?.message}
+              </FormError>
+            </>
+          )}
         />
-        <FormError>Error</FormError>
       </FormField>
       <FormField>
-        <Input
-          required
-          theme="light"
-          value={formState.password}
-          onChange={handlePasswordChange}
+        <Controller
           name="password"
-          type="password"
-          placeholder="Пароль"
+          control={control}
+          render={({ field, fieldState }) => (
+            <>
+              <Input
+                theme="light"
+                type="password"
+                placeholder="Пароль"
+                name={field.name}
+                value={field.value}
+                onChange={(e) => field.onChange(e.target.value)}
+                className={fieldState.error?.message && "input_invalid"}
+              />
+              <FormError>{fieldState.error?.message}</FormError>
+            </>
+          )}
         />
-        <FormError></FormError>
       </FormField>
 
       <Button type="submit" theme="light" className="login__btn">
