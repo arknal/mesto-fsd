@@ -1,0 +1,173 @@
+@import 'src/shared/assets/styles/breakpoints';
+
+.menu {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+
+  &__nav {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    list-style-type: none;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  @mixin link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 18px;
+    color: var(---text-main);
+    border-radius: 4px;
+    text-decoration: none;
+  }
+  &__link {
+    @include link;
+    position: relative;
+    font-weight: 400;
+    padding: 10px;
+    margin-right: 20px;
+    transition: opacity .2s;
+  }
+
+  &__link:hover,
+  &__profile-link:hover {
+    background-color: var(---overlay-hover);
+  }
+  &__link:active,
+  &__profile-link:active {
+    background-color: var(---gray);
+  }
+  &__link:last-of-type {
+    margin-right: 0;
+  }
+  &__link_active {
+    background-color: var(---text-active);
+    pointer-events: none;
+  }
+  &__profile-link {
+    @include link;
+    font-weight: 500;
+    transition: background-color 0.4s;
+    padding: 7px;
+  }
+  &__profile-link:active &__profile-icon {
+    background-color: var(---gray);
+  }
+  &__profile-icon {
+    margin-left: 17px;
+    padding: 7px 8px;
+    background-color: var(---light-gray);
+    transition: background-color 0.4s;
+    border-radius: 4px;
+  }
+  &__profile-link_active &__profile-icon {
+    background-color: var(---text-active);;
+  }
+  &__burger {
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    background-image: url('~shared/assets/images/burger-icon-closed.svg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    display: none;
+  }
+  &__burger_active {
+    background-image: url('~shared/assets/images/burger-icon-opened.svg');
+  }
+}
+@media (max-width: #{$screen-tablets-min}) {
+  .menu {
+    &__nav-wrapper {
+      z-index: 1;
+      display: flex;
+      justify-content: flex-end;
+      visibility: hidden;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      opacity: 0;
+    }
+    &__nav {
+      width: 520px;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(10, 1fr);
+      grid-column-gap: 0;
+      grid-row-gap: 20px;
+      z-index: 1;
+      align-items: center;
+      justify-items: center;
+      background-color: var(---white);
+      padding: 160px 0 90px;
+      overflow-y: scroll;
+    }
+    &__nav-wrapper::after {
+      content: '';
+      background-color: rgba(0, 0, 0, 0.2);
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+    }
+    &__burger {
+      display: block;
+    }
+    &__burger_active + &__nav-wrapper {
+      opacity: 1;
+      visibility: visible;
+    }
+    &__link {
+      padding: 0 0 8px 0;
+      font-size: 18px;
+      line-height: 22px;
+      margin: 0;
+      color: var(---black);
+    }
+    &__link:hover {
+      background-color: transparent;
+      opacity: 0.9;
+    }
+    &__link:active {
+      background-color: transparent;
+      opacity: 0.6;
+    }
+    &__link_active {
+      box-sizing: border-box;
+      border-radius: 0;
+      background-color: transparent;
+      padding: 0 0 8px 0;
+      color: var(---black);
+    }
+    &__link_active::after {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 400;
+      padding: 0 0 8px 0;
+    }
+    &__link_active::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: var(---black);
+      height: 2px;
+    }
+    &__profile-link {
+      grid-row-start: -2;
+      color: var(---black);
+    }
+  }
+}

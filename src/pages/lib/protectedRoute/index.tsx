@@ -7,7 +7,7 @@ interface IProtectedRouteProps {
 }
 
 const ProtectedRoute = (props: IProtectedRouteProps) => {
-  const isAuthorized = false;
+  const isAuthorized = true;
 
   return <>{isAuthorized ? props.children : <Navigate to={routes.login} />}</>;
 };

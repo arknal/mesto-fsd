@@ -7,6 +7,7 @@ const routes = {
   login: "/login",
   card: "/card",
   search: "/search",
+  about: "/about",
 };
 
 export default routes;
