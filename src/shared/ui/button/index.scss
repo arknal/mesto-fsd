@@ -1,0 +1,48 @@
+@import 'src/shared/assets/styles/breakpoints';
+
+.button {
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: opacity .4s;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+
+  &_disabled {
+    color: #000;
+    background: transparent;
+    border: 1px solid var(---light-gray);
+    opacity: .2;
+    pointer-events: none;
+  }
+
+  &_theme {
+    &_light {
+      color: var(---text-main);
+      background-color: var(---primary);
+    }
+
+    &_dark {
+      color: var(---black);
+      background-color: var(---white);
+    }
+  }
+}
+
+.button:hover {
+  opacity: 0.8;
+}
+
+@media (max-width: $screen-phones-min) {
+  .button {
+    margin-top: 15px;
+    height: 46px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

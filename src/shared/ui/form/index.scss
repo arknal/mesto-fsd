@@ -1,0 +1,14 @@
+@import 'src/shared/assets/styles/breakpoints.scss';
+
+.form {
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+  width: 358px;
+  margin: 0 auto;
+}
+
+@media (max-width: $screen-phones-min) {
+  .form {
+    width: 260px;
+  }
+}

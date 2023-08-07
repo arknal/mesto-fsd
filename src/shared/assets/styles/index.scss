@@ -12,7 +12,12 @@
   min-width: 320px;
   font-family: 'Inter', sans-serif;
 }
-
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .flex-container {
   display: flex;
   align-items: center;

@@ -1,0 +1,50 @@
+@import './src/shared/assets/styles/breakpoints';
+
+.login {
+  box-sizing: border-box;
+  padding: 60px 0 80px;
+  flex-grow: 1;
+  margin: 10px 0 10px;
+
+  &__link {
+    display: block;
+    margin: 15px 0 0;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: var(---text-main);
+    text-decoration: none;
+    transition: opacity .4s;
+  }
+
+  &__link:hover {
+    opacity: .6;
+  }
+
+  &__btn {
+    margin-top: 179px;
+  }
+
+  &__form-container {
+    background-color: var(---overlay);
+    max-width: 400px;
+    border-radius: 10px;
+    box-sizing: border-box;
+    padding: 34px 18px 37px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: $screen-phones-min) {
+  .login {
+    padding: 30px 10px 40px;
+
+    &__form-container {
+      padding: 34px 10px 37px;
+    }
+  }
+  .login__btn {
+    margin-top: 136px;
+  }
+}

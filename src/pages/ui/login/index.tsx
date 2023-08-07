@@ -1,7 +1,14 @@
-import React from "react";
+import "./index.scss";
+import { LoginForm } from "features/user/authentication/login";
 
 const LoginPage = () => {
-  return <div>LoginPage</div>;
+  return (
+    <main className="login">
+      <div className="login__form-container">
+        <LoginForm />
+      </div>
+    </main>
+  );
 };
 
 export default LoginPage;

@@ -1,0 +1,28 @@
+.form__title {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  margin: 0 0 41px;
+
+  &_theme {
+    &_dark {
+      color: var(---primary);
+    }
+
+    &_light {
+      color: var(---text-main);
+    }
+  }
+
+  &_text-align {
+    &_center {
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 580px) {
+  .form__title {
+    margin: 0 0 40px;
+  }
+}
