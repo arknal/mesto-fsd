@@ -67,6 +67,10 @@
   &_invalid {
     border-color: var(---red);
   }
+
+  &_valid {
+    border-color: var(---green)
+  }
 }
 
 .input:focus {

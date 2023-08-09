@@ -7,9 +7,10 @@ import routes from "shared/lib/routes";
 
 import MainPage from "./ui/main";
 import NotFoundPage from "./ui/notfound";
-import RegisterPage from "./ui/register";
+import RegisterPage from "./ui/signup";
 import LoginPage from "./ui/login";
 import ProfilePage from "./ui/profile";
+import SignupPage from "./ui/signup";
 
 const router = createBrowserRouter([
   {
@@ -47,8 +48,8 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: routes.register,
-        element: <RegisterPage />,
+        path: routes.signup,
+        element: <SignupPage />,
       },
       {
         path: routes.login,

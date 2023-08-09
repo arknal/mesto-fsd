@@ -7,4 +7,5 @@ export default interface IButtonProps {
   className?: string;
   isLoading?: boolean;
   onClick?: MouseEventHandler<HTMLElement>;
+  disabled?: boolean;
 }

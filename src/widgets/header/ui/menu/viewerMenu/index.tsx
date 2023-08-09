@@ -10,7 +10,7 @@ const ViewerMenu: FC = () => {
         Войти
       </NavLink>
       <NavLink
-        to={routes.register}
+        to={routes.signup}
         className={toggleLinkState}
         data-title="Регистрация"
       >

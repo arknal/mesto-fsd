@@ -11,12 +11,16 @@ export const Button: FC<IButtonProps> = ({
   ...props
 }) => {
   const fullClassName = createClassName(
-    ["button", `button_theme_${theme}`],
-    className
+    [
+      "button",
+      `button_theme_${theme}`,
+      props.disabled ? "button_disabled" : "",
+    ],
+    className,
   );
 
   return (
-    <button className={fullClassName} disabled={isLoading} {...props}>
+    <button className={fullClassName} disabled={props.disabled} {...props}>
       {children}
     </button>
   );

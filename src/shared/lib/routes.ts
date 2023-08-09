@@ -3,7 +3,7 @@ const routes = {
   feed: "/feed",
   myCards: "my-cards",
   profile: "/profile",
-  register: "/sign-up",
+  signup: "/sign-up",
   login: "/login",
   card: "/card",
   search: "/search",

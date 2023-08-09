@@ -15,8 +15,7 @@
 
   &_disabled {
     color: #000;
-    background: transparent;
-    border: 1px solid var(---light-gray);
+    background-color: var(---secondary);
     opacity: .2;
     pointer-events: none;
   }
