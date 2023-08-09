@@ -106,7 +106,7 @@ export const SignupForm: FC = () => {
         className="login__btn"
         disabled={!formState.isValid && formState.isSubmitted}
       >
-        {`Войти ${formState.isValid}`}
+        Зарегистрироваться
       </Button>
       <Link to={routes.login} className="login__link">
         Уже зарегистрированы? Войти
