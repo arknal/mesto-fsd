@@ -12,7 +12,7 @@ export const Menu = () => {
 
   const [isMenuActive, setIsMenuActive] = useState(false);
 
-  const isAuthorized = false;
+  const isAuthorized = true;
   return (
     <div className="menu">
       <span
@@ -25,11 +25,7 @@ export const Menu = () => {
         }}
       />
       <div className="menu__nav-wrapper">
-        {isAuthorized ? (
-          <UserMenu isMenuActive={isMenuActive} />
-        ) : (
-          <ViewerMenu />
-        )}
+        {isAuthorized ? <UserMenu /> : <ViewerMenu />}
       </div>
     </div>
   );

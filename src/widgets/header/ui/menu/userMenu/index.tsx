@@ -1,27 +1,21 @@
 import { FC } from "react";
-import { NavLink } from "react-router-dom";
 import routes from "shared/lib/routes";
 import profileIcon from "shared/assets/images/profile-icon.svg";
+import { NavigationLink } from "shared/ui";
 
-import { toggleLinkState, toggleProfileLinkState } from "../helpers";
-
-interface IUserMenuProps {
-  isMenuActive: boolean;
-}
-
-export const UserMenu: FC<IUserMenuProps> = ({ isMenuActive }) => {
+export const UserMenu: FC = () => {
   return (
     <nav className="menu__nav">
-      <NavLink to={routes.main} className={toggleLinkState}>
-        Главная
-      </NavLink>
-      <NavLink to={routes.about} className={toggleLinkState}>
-        О проекте
-      </NavLink>
-      <NavLink to={routes.profile} className={toggleProfileLinkState}>
+      <NavigationLink to={routes.main}>Главная</NavigationLink>
+      <NavigationLink to={routes.about}>О проекте</NavigationLink>
+      <NavigationLink
+        to={routes.profile}
+        className="menu__profile-link"
+        classNameActive="menu__profile-link_active"
+      >
         Аккаунт
         <img src={profileIcon} alt="" className="menu__profile-icon" />
-      </NavLink>
+      </NavigationLink>
     </nav>
   );
 };

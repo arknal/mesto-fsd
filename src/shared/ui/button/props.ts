@@ -1,7 +1,7 @@
-import { FormEventHandler, MouseEventHandler } from "react";
+import { FormEventHandler, MouseEventHandler, ReactNode } from "react";
 
 export default interface IButtonProps {
-  children: string;
+  children: string | ReactNode;
   type: "submit" | "reset" | "button";
   theme: "dark" | "light";
   className?: string;

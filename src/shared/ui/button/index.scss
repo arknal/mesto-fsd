@@ -1,11 +1,9 @@
 @import 'src/shared/assets/styles/breakpoints';
 
 .button {
-  width: 100%;
   box-sizing: border-box;
   border: none;
   height: 50px;
-  margin-top: 10px;
   border-radius: 5px;
   cursor: pointer;
   transition: opacity .4s;
@@ -39,7 +37,6 @@
 
 @media (max-width: $screen-phones-min) {
   .button {
-    margin-top: 15px;
     height: 46px;
     font-size: 14px;
     line-height: 17px;

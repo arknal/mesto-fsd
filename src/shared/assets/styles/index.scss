@@ -2,6 +2,7 @@
 @import '../fonts/fonts.css';
 @import 'colors.scss';
 @import 'breakpoints.scss';
+@import 'primeicons/primeicons.css';
 
 
 .page {
@@ -25,6 +26,10 @@
 
 .flex-container_direction_column {
   flex-direction: column;
+}
+
+.content {
+  flex-grow: 1;
 }
 
 @media (max-width: $screen-laptops-min) {

@@ -1,0 +1,174 @@
+@import 'src/shared/assets/styles/breakpoints';
+
+.profile {
+  font-family: 'Inter', sans-serif;
+  color: var(---white);
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  width: 100%;
+  background-color: var(---overlay);
+  box-sizing: border-box;
+  padding: 20px 20px;
+  border-radius: 6px;
+  flex-wrap: wrap;
+
+  &__name {
+    max-width: 310px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 48px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 18px 0 0;
+  }
+  &__job {
+    max-width: 300px;
+    margin: 16px 0 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+  }
+  &__info {
+    flex-grow: 1;
+    align-items: baseline;
+  }
+  &__edit-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0,0,0,0);
+    background-image: url(~shared/assets/icons/pen.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    align-self: center;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    transition: opacity .5s;
+    cursor: pointer;
+  }
+  &__edit-button:hover {
+    opacity: 0.6;
+  }
+  &__edit-avatar {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity .5s;
+    opacity: 0;
+  }
+  &__edit-avatar::before {
+    content: '';
+    background-image: url(~shared/assets/icons/pen.svg);
+    background-size: 26px 26px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  &__edit-avatar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.8;
+    background-color: #000;
+  }
+  &__edit-avatar:hover {
+    opacity: 1;
+  }
+  &__avatar-container {
+    box-sizing: border-box;
+    border-radius: 60px;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    margin-right: 30px;
+  }
+  &__action-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 20px;
+  }
+  &__user-action {
+    box-sizing: border-box;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-right: 1rem;
+  }
+  &__user-action:last-of-type {
+    margin-right: 0;
+  }
+  &__user-numbers {
+    color: var(---secondary);
+    margin-right: 5px;
+  }
+  &__subscribe-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    font-size: 16px !important;
+    height: 50px;
+    background-color: var(---primary);
+    box-sizing: border-box;
+    border-radius: 2px;
+    transition: opacity .4s;
+    cursor: pointer;
+  }
+  &__subscribe-btn:hover {
+    opacity: 0.6;
+  }
+}
+
+
+@media (max-width: $screen-phones-min) {
+  .profile {
+    flex-direction: column;
+    margin-top: 42px;
+  &__name {
+    font-size: 27px;
+    line-height: 33px;
+    margin: 0 10px 0 0;
+  }
+  &__job {
+    margin: 14px 0 36px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  &__info {
+    align-items: center;
+  }
+  &__avatar-container {
+    margin-right: 0px;
+    margin-bottom: 26px;
+  }
+  &__add-button {
+    max-width: 320px;
+  }
+  &__user-action {
+    font-size: 12px;
+    line-height: 14px;
+  }
+}
+}

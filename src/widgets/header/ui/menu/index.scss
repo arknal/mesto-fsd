@@ -1,4 +1,5 @@
-@import 'src/shared/assets/styles/breakpoints';
+@use 'src/shared/assets/styles/breakpoints';
+@use 'src/shared/assets/styles/mixins';
 
 .menu {
   font-family: 'Inter', sans-serif;
@@ -13,48 +14,24 @@
     box-sizing: border-box;
     overflow: hidden;
   }
-  @mixin link {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-sizing: border-box;
-    font-style: normal;
-    font-size: 14px;
-    line-height: 18px;
-    color: var(---text-main);
-    border-radius: 4px;
-    text-decoration: none;
-  }
   &__link {
-    @include link;
+    @include mixins.link;
     position: relative;
     font-weight: 400;
     padding: 10px;
     margin-right: 20px;
-    transition: background-color .3s, color .3s;
+    transition: border-bottom .3s;
+    border-bottom: 2px solid transparent;
   }
 
-  &__link:hover,
-  &__profile-link:hover {
-    background-color: #9eade629;
-  }
-  &__link:active,
-  &__profile-link:active {
-    background-color: var(---gray);
-  }
-  &__link:last-of-type {
-    margin-right: 0;
-  }
-  &__link_active {
-    background-color:  var(---primary);
-    pointer-events: none;
-    color: var(---text-main);
-  }
   &__profile-link {
-    @include link;
+    @include mixins.link;
     font-weight: 500;
     transition: background-color 0.4s;
     padding: 7px;
+  }
+  &__profile-link:hover {
+    border-bottom: none;
   }
   &__profile-link:active &__profile-icon {
     background-color: var(---gray);
@@ -84,7 +61,7 @@
     background-image: url('~shared/assets/images/burger-icon-opened.svg');
   }
 }
-@media (max-width: #{$screen-tablets-min}) {
+@media (max-width: #{breakpoints.$screen-tablets-min}) {
   .menu {
     &__nav-wrapper {
       z-index: 1;
@@ -150,25 +127,13 @@
       padding: 0 0 8px 0;
       color: var(---black);
     }
-    &__link_active::after {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-weight: 400;
-      padding: 0 0 8px 0;
-    }
-    &__link_active::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: var(---black);
-      height: 2px;
-    }
+
     &__profile-link {
       grid-row-start: -2;
       color: var(---black);
+    }
+    &__profile-link:hover {
+      border-bottom: none;
     }
   }
 }

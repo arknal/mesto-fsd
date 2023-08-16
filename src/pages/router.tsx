@@ -33,6 +33,14 @@ const router = createBrowserRouter([
             path: routes.myCards,
             element: <ProtectedRoute>My Cards</ProtectedRoute>,
           },
+          {
+            path: routes.subscriptions,
+            element: <ProtectedRoute>subscriptions</ProtectedRoute>,
+          },
+          {
+            path: routes.liked,
+            element: <ProtectedRoute>liked</ProtectedRoute>,
+          },
         ],
       },
       {
