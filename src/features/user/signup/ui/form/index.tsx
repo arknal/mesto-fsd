@@ -7,8 +7,9 @@ import {
   FormTitle,
   Input,
   Button,
-} from "shared/ui";
-import routes from "shared/lib/routes";
+  routes,
+} from "shared";
+
 import {
   signupFormSchema,
   type SignupFormSchema,

@@ -1,0 +1,61 @@
+.card {
+  font-family: 'Inter', sans-serif;
+  width: 282px;
+  height: 380px;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: var(---overlay);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__info {
+    padding: 15px 10px 10px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    max-width: 200px;
+    flex-grow: 1;
+    margin: 0;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 29px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: var(---white);
+  }
+  &__image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 282px;
+    height: 282px;
+    object-position: top;
+    object-fit: cover;
+    overflow: hidden;
+    cursor: pointer;
+    transition: opacity .4s;
+    background-color: var(---gray);
+    color: var(---white);
+  }
+  &__image:hover {
+    opacity: .9;
+  }
+  &__control {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-grow: 1;
+  }
+  &__control > .like-btn {
+    margin-left: 10px;
+  }
+  &__control > .like-btn:last-of-type {
+    margin-right: 0;
+  }
+}

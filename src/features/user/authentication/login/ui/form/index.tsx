@@ -8,7 +8,7 @@ import {
   Input,
   Button,
 } from "shared/ui";
-import routes from "shared/lib/routes";
+import { routes } from "shared";
 import {
   loginFormSchema,
   type LoginFormSchema,

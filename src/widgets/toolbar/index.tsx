@@ -1,9 +1,7 @@
 import "./index.scss";
-import { NavLink } from "react-router-dom";
-import routes from "shared/lib/routes";
-import { NavigationLink } from "shared/ui";
+import { NavigationLink, routes } from "shared";
 
-const Toolbar = () => {
+export const Toolbar = () => {
   return (
     <div className="toolbar">
       <nav className="toolbar__nav">
@@ -23,5 +21,3 @@ const Toolbar = () => {
     </div>
   );
 };
-
-export default Toolbar;

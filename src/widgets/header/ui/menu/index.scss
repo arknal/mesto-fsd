@@ -30,9 +30,6 @@
     transition: background-color 0.4s;
     padding: 7px;
   }
-  &__profile-link:hover {
-    border-bottom: none;
-  }
   &__profile-link:active &__profile-icon {
     background-color: var(---gray);
   }

@@ -1,7 +1,7 @@
 import "./index.scss";
 import { LoginForm } from "features/user/authentication/login";
 
-const LoginPage = () => {
+export const LoginPage = () => {
   return (
     <main className="login">
       <div className="login__form-container">
@@ -10,5 +10,3 @@ const LoginPage = () => {
     </main>
   );
 };
-
-export default LoginPage;

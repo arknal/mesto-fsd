@@ -1,9 +1,8 @@
 import { FC } from "react";
-import routes from "shared/lib/routes";
+import { routes, NavigationLink } from "shared";
 import profileIcon from "shared/assets/images/profile-icon.svg";
-import { NavigationLink } from "shared/ui";
 
-export const UserMenu: FC = () => {
+const UserMenu: FC = () => {
   return (
     <nav className="menu__nav">
       <NavigationLink to={routes.main}>Главная</NavigationLink>
@@ -19,3 +18,4 @@ export const UserMenu: FC = () => {
     </nav>
   );
 };
+export default UserMenu;

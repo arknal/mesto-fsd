@@ -1,10 +1,9 @@
 import React from "react";
-import Profile from "widgets/profile";
-import Toolbar from "widgets/toolbar";
+import { Profile, Toolbar } from "widgets";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
-import routes from "shared/lib/routes";
+import { routes } from "shared";
 
-const MainPage = () => {
+export const MainPage = () => {
   const location = useLocation();
 
   if (location.pathname === routes.main) {
@@ -18,5 +17,3 @@ const MainPage = () => {
     </main>
   );
 };
-
-export default MainPage;

@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 
 import "./index.scss";
 
-import { UserMenu } from "widgets/header/ui/menu/userMenu";
-import ViewerMenu from "widgets/header/ui/menu/viewerMenu";
+import UserMenu from "./userMenu";
+import ViewerMenu from "./viewerMenu";
 
 export const Menu = () => {
   useEffect(() => {

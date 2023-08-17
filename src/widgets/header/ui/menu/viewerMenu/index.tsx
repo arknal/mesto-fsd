@@ -1,28 +1,12 @@
 import { FC } from "react";
-import { NavLink, useLocation } from "react-router-dom";
-import routes from "shared/lib/routes";
-import { toggleLinkState } from "widgets/header/ui/menu/helpers";
+import { routes, NavigationLink } from "shared";
 
 const ViewerMenu: FC = () => {
   return (
     <nav className="menu__nav">
-      <NavLink to={routes.login} className={toggleLinkState} data-title="Войти">
-        Войти
-      </NavLink>
-      <NavLink
-        to={routes.signup}
-        className={toggleLinkState}
-        data-title="Регистрация"
-      >
-        Регистрация
-      </NavLink>
-      <NavLink
-        to={routes.about}
-        className={toggleLinkState}
-        data-title="О проекте"
-      >
-        О проекте
-      </NavLink>
+      <NavigationLink to={routes.login}>Войти</NavigationLink>
+      <NavigationLink to={routes.signup}>Регистрация</NavigationLink>
+      <NavigationLink to={routes.about}>О проекте</NavigationLink>
     </nav>
   );
 };

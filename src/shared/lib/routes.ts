@@ -1,4 +1,4 @@
-const routes = {
+export const routes = {
   main: "/",
   feed: "/feed",
   myCards: "/my-cards",
@@ -11,5 +11,3 @@ const routes = {
   subscriptions: "/subscriptions",
   liked: "/liked",
 };
-
-export default routes;

@@ -1,21 +1,23 @@
 import { createBrowserRouter } from "react-router-dom";
 
-import Layout from "./lib/pageLayout";
-import ProtectedRoute from "./lib/protectedRoute";
+import { PageLayout, ProtectedRoute } from "./lib";
 
-import routes from "shared/lib/routes";
+import { routes, MockMesto } from "shared";
 
-import MainPage from "./ui/main";
-import NotFoundPage from "./ui/notfound";
-import RegisterPage from "./ui/signup";
-import LoginPage from "./ui/login";
-import ProfilePage from "./ui/profile";
-import SignupPage from "./ui/signup";
+import {
+  MainPage,
+  NotFoundPage,
+  SignupPage,
+  LoginPage,
+  ProfilePage,
+} from "./ui";
+
+import { MestoWidget } from "widgets";
 
 const router = createBrowserRouter([
   {
     path: routes.main,
-    element: <Layout />,
+    element: <PageLayout />,
     children: [
       {
         path: routes.main,
@@ -27,7 +29,11 @@ const router = createBrowserRouter([
         children: [
           {
             path: routes.feed,
-            element: <ProtectedRoute>Feed</ProtectedRoute>,
+            element: (
+              <ProtectedRoute>
+                <MestoWidget {...MockMesto} />
+              </ProtectedRoute>
+            ),
           },
           {
             path: routes.myCards,

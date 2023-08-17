@@ -1,6 +1,6 @@
-import { SignupForm } from "features/user/signup";
+import { SignupForm } from "features";
 
-const SignupPage = () => {
+export const SignupPage = () => {
   return (
     <main className="login">
       <div className="login__form-container">
@@ -9,5 +9,3 @@ const SignupPage = () => {
     </main>
   );
 };
-
-export default SignupPage;

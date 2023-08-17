@@ -1,9 +1,7 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
-import Header from "widgets/header";
-import Footer from "widgets/footer";
+import { Header, Footer } from "widgets";
 
-const Layout = () => {
+export const PageLayout = () => {
   return (
     <>
       <Header />
@@ -12,5 +10,3 @@ const Layout = () => {
     </>
   );
 };
-
-export default Layout;
