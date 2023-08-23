@@ -22,7 +22,7 @@ interface IFormState {
 }
 
 export const LoginForm: FC = () => {
-  const { control, handleSubmit } = useForm<LoginFormSchema>({
+  const { control, handleSubmit, formState } = useForm<LoginFormSchema>({
     defaultValues: {
       email: "",
       password: "",
@@ -51,13 +51,9 @@ export const LoginForm: FC = () => {
                 name={field.name}
                 value={field.value}
                 onChange={(e) => field.onChange(e.target.value)}
-                className={fieldState.error?.message && "input_invalid"}
+                className={fieldState.invalid ? "input_invalid" : ""}
               />
-              <FormError>
-                {formState.isValidating
-                  ? "валидация..."
-                  : fieldState.error?.message}
-              </FormError>
+              <FormError>{fieldState.error?.message}</FormError>
             </>
           )}
         />
@@ -75,7 +71,7 @@ export const LoginForm: FC = () => {
                 name={field.name}
                 value={field.value}
                 onChange={(e) => field.onChange(e.target.value)}
-                className={fieldState.error?.message && "input_invalid"}
+                className={fieldState.invalid ? "input_invalid" : ""}
               />
               <FormError>{fieldState.error?.message}</FormError>
             </>
@@ -83,7 +79,12 @@ export const LoginForm: FC = () => {
         />
       </FormField>
 
-      <Button type="submit" theme="light" className="login__btn">
+      <Button
+        type="submit"
+        theme="light"
+        className="login__btn"
+        disabled={!formState.isValid && formState.isSubmitted}
+      >
         Войти
       </Button>
       <Link to={routes.signup} className="login__link">
