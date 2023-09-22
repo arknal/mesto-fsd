@@ -1,5 +1,5 @@
-import { FC, useCallback } from "react";
-import { Link } from "react-router-dom";
+import { FC } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Form,
   FormField,
@@ -8,13 +8,14 @@ import {
   Input,
   Button,
 } from "shared/ui";
-import { routes } from "shared";
+import { routes, useAppDispatch } from "shared";
 import {
   loginFormSchema,
   type LoginFormSchema,
 } from "features/user/authentication/login/model/loginFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
+import { loginThunk } from "features/user/authentication/login/model/loginThunk";
 
 interface IFormState {
   email: string;
@@ -22,16 +23,24 @@ interface IFormState {
 }
 
 export const LoginForm: FC = () => {
-  const { control, handleSubmit, formState } = useForm<LoginFormSchema>({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-    resolver: zodResolver(loginFormSchema),
-  });
-
+  const { control, handleSubmit, formState, setError } =
+    useForm<LoginFormSchema>({
+      defaultValues: {
+        email: "",
+        password: "",
+      },
+      resolver: zodResolver(loginFormSchema),
+    });
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const onSubmit: SubmitHandler<IFormState> = (data) => {
-    console.log(data);
+    dispatch(loginThunk(data))
+      .unwrap()
+      .then(() => navigate(routes.main))
+      .catch((error) => {
+        setError("email", { type: "server", message: error.message });
+        setError("password", {});
+      });
   };
 
   return (

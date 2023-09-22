@@ -1,0 +1,112 @@
+@import 'src/shared/assets/styles/breakpoints';
+
+.profile-page {
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  justify-content: center;
+  &__greeting {
+    color: var(---white);
+    text-align: center;
+  }
+  &__wrapper {
+    max-width: 410px;
+    display: flex;
+    flex-direction: column;
+    max-height: 477px;
+    height: 100%;
+    width: 100%;
+  }
+  &__info-block {
+    padding-top: 15px;
+    margin-top: 110px;
+    width: 100%;
+    margin-bottom: auto;
+    flex-grow: 1;
+  }
+  &__info {
+    font-style: normal;
+    color: var(---white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__info-header {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 18px;
+    margin: 0;
+  }
+  &__info-value {
+    font-weight: 500;
+    margin: 0;
+    font-size: 14px;
+    line-height: 16px;
+  }
+  &__control-block {
+    align-self: flex-end;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  &__edit-btn,
+  &__logout-btn {
+    margin: 0 auto;
+    display: block;
+    box-sizing: border-box;
+    font-style: normal;
+    font-size: 13px;
+    line-height: 16px;
+    color: var(---white);
+    border-radius: 4px;
+    font-weight: 400;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: opacity 0.4s;
+  }
+  &__edit-btn {
+    margin: 0 auto 16px;
+  }
+  &__edit-btn:hover {
+    opacity: 0.8;
+  }
+  &__logout-btn {
+    color: var(---red);
+  }
+  &__logout-btn:hover {
+    opacity: 0.8;
+  }
+}
+@media (max-width: #{$screen-tablets-min}) {
+  .profile-page {
+    &__info-block {
+      margin-top: 80px;
+    }
+    &__control-block {
+      padding: 0 0 30px;
+    }
+  }
+}
+@media (max-width: #{$screen-phones-min}) {
+  .profile-page {
+    &__wrapper {
+      box-sizing: border-box;
+      padding-top: 70px;
+      max-height: 100%;
+    }
+    &__info-block {
+      margin-top: 80px;
+      box-sizing: border-box;
+      padding: 0 15px;
+    }
+    &__control-block {
+      padding: 0 0 40px;
+    }
+    &__edit-btn,
+    &__logout-btn {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+}

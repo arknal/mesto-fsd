@@ -21,10 +21,3 @@ export type Feedback = {
   user: string;
   message: string;
 };
-
-export type User = {
-  name: string;
-  about: string;
-  subscriptions: string[];
-  followers: string[];
-};

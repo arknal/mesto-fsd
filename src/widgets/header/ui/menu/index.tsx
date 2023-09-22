@@ -4,6 +4,8 @@ import "./index.scss";
 
 import UserMenu from "./userMenu";
 import ViewerMenu from "./viewerMenu";
+import { selectIsAuthorized } from "entities/user";
+import { useAppSelector } from "shared";
 
 export const Menu = () => {
   useEffect(() => {
@@ -12,7 +14,7 @@ export const Menu = () => {
 
   const [isMenuActive, setIsMenuActive] = useState(false);
 
-  const isAuthorized = true;
+  const isAuthorized = useAppSelector(selectIsAuthorized);
   return (
     <div className="menu">
       <span

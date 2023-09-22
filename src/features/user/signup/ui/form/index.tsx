@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Form,
   FormField,
@@ -16,6 +16,8 @@ import {
 } from "../../model/signupFormSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
+import { config } from "shared/lib/config";
+import { signupErrorHandler } from "features/user/signup/lib/errorHandler";
 
 interface IFormState {
   email: string;
@@ -24,17 +26,42 @@ interface IFormState {
 }
 
 export const SignupForm: FC = () => {
-  const { control, handleSubmit, formState } = useForm<SignupFormSchema>({
-    defaultValues: {
-      email: "",
-      password: "",
-      confirmationPassword: "",
-    },
-    resolver: zodResolver(signupFormSchema),
-  });
+  const { control, handleSubmit, formState, setError } =
+    useForm<SignupFormSchema>({
+      defaultValues: {
+        email: "",
+        password: "",
+        confirmationPassword: "",
+      },
+      resolver: zodResolver(signupFormSchema),
+    });
+
+  const navigate = useNavigate();
 
   const onSubmit: SubmitHandler<IFormState> = (data) => {
-    console.log(data);
+    fetch(`${config.API_ENDPOINT}/signup`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    })
+      .then((res) => {
+        if (res.status !== 200) {
+          throw new Error(signupErrorHandler(res.status));
+        }
+        return res.json();
+      })
+      .then(() => {
+        alert("Вы успешно зарегистрировались!");
+        navigate(routes.login);
+      })
+      .catch((error) => {
+        setError("email", {
+          type: "server",
+          message: error.message,
+        });
+      });
   };
 
   return (
